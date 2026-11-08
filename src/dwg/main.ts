@@ -47,7 +47,7 @@ async function run(command: CadCommand) {
     if (opening || manager) return
     opening = true
     if (!(command.buffer instanceof ArrayBuffer) || command.buffer.byteLength > MAX_CAD_BYTES) throw new Error('Drawing exceeds the 100 MB preview limit')
-    AcApSettingManager.configure({ storageKey: 'zap-open-view-dwg-settings' })
+    AcApSettingManager.configure({ storageKey: 'paz-open-view-dwg-settings' })
     AcApSettingManager.instance.apply({ isShowCommandLine: false, isShowToolbar: false, isShowRibbon: false, isShowShortCutToolbar: false, isShowCoordinate: false }, { persist: false })
     // The reader runs in a worker of its own (the converter's design: the GPL parser stays in a separate bundle).
     AcDbDatabaseConverterManager.instance.register(

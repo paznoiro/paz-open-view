@@ -30,7 +30,7 @@ function notice(): string {
     return `* ${name} ${pkg.version} — ${pkg.license ?? 'see package'}${repo ? ` — ${repo}` : ''}`
   })
   return [
-    'zap-open-view — DWG viewer',
+    'paz-open-view — DWG viewer',
     '',
     'This page is free software under the GNU General Public License, version 3 or later (GPL-3.0-or-later). The full text',
     'is in GPL-3.0.txt beside this file. It comes with no warranty.',
@@ -71,7 +71,7 @@ export function viewerAssets(): Plugin {
   const type = (name: string) =>
     name.endsWith('.wasm') ? 'application/wasm' : name.endsWith('.js') ? 'text/javascript' : name.endsWith('.json') ? 'application/json' : name.endsWith('.txt') ? 'text/plain; charset=utf-8' : 'application/octet-stream'
   return {
-    name: 'zap-open-view-assets',
+    name: 'paz-open-view-assets',
     transformIndexHtml(html) {
       const source = sourceUrl()
       return html.replaceAll('{{SOURCE_URL}}', source ?? '#').replaceAll('{{SOURCE_NOTE}}', source ? '' : ' (the link is filled in when the pipeline builds the site)')

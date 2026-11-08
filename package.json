@@ -1,5 +1,5 @@
 {
-  "name": "zap-open-view",
+  "name": "paz-open-view",
   "private": true,
   "version": "1.0.0",
   "description": "Viewers for formats whose only browser readers are copyleft (GPL). Each one runs in its own page and is loaded into Peek (https://peek.zaporion.com) in a frame.",

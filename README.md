@@ -1,4 +1,4 @@
-# zap-open-view
+# paz-open-view
 
 Viewers for file formats whose only browser readers are **copyleft (GPL)**. Each viewer is a page of its own, published to
 GitHub Pages, and [Peek](https://peek.zaporion.com) loads it in a frame when a file of that type is opened. Peek's own
