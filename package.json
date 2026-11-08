@@ -1,0 +1,29 @@
+{
+  "name": "zap-open-view",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Viewers for formats whose only browser readers are copyleft (GPL). Each one runs in its own page and is loaded into Peek (https://peek.zaporion.com) in a frame.",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mlightcad/cad-simple-viewer": "1.7.6",
+    "@mlightcad/data-model": "1.15.11",
+    "@mlightcad/libredwg-converter": "3.15.11",
+    "@mlightcad/libredwg-web": "0.8.7",
+    "@mlightcad/mtext-renderer": "0.13.4",
+    "three": "0.172.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/three": "0.172.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "pdfjs-dist": "^6.3.289"
+  }
+}

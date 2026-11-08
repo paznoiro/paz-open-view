@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Drawings may reference remote images/fonts. Never follow those references. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self'; img-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex" />
+    <title>DWG viewer</title>
+    <!--
+      zap-open-view: free software, GNU General Public License v3 or later.
+      Source code of this page and of how it was built: {{SOURCE_URL}}
+      Licence texts and components: ../licenses/NOTICE.txt
+    -->
+    <link rel="license" href="../licenses/GPL-3.0.txt" />
+    <style>html,body,#cad{width:100%;height:100%;margin:0;overflow:hidden}canvas{display:block}</style>
+  </head>
+  <body>
+    <div id="cad"></div>
+    <script type="module" src="../src/dwg/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+# Builds the viewers and publishes them to GitHub Pages. The address of the DWG page comes out of this run (see the
+# summary of the "deploy" job) and goes into Peek as VITE_DWG_VIEWER_URL.
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Show the address Peek needs
+        run: |
+          {
+            echo "### Viewer addresses"
+            echo ""
+            echo "| Viewer | Address | Peek setting |"
+            echo "| --- | --- | --- |"
+            echo "| DWG | ${{ steps.deployment.outputs.page_url }}dwg/ | \`VITE_DWG_VIEWER_URL=${{ steps.deployment.outputs.page_url }}dwg/\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
